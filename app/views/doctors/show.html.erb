@@ -1,0 +1,39 @@
+<br>
+<center>
+  <div class="container">
+      <div class="center">
+          <div class="col-6">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-8 col-lg-8 col-md-2">
+                            <div class="text-align">
+                              <h3 class="mb-0 text-truncated"><%= @doctor.name %></h3>
+                              <br>
+                              <div class="container">
+                                <p align="left">Insurance: <%= @doctor.insurance.name %></p>
+                                <p align="left">Specialty: <%= @doctor.specialty.name %></p>
+                                <p align="left">Fee: $<%= @doctor.fee %>.00</p>
+                                <p align="left">Co-pay: $<%= (@doctor.fee * @doctor.insurance.coverage).round(0) %>.00</p>
+                              </div>
+                            </div>
+
+
+                          </div>
+                          <div class="col-12 col-lg-4 col-md-6 text-center">
+                              <img src="<%= @doctor.image_url %>" alt="Dr's <%= @doctor.name %> picture">
+                              <br>
+                          </div>
+                          <div class="col-12 col-lg-8">
+                            <%= button_to "Schedule an Appointment", new_doctor_appointment_path(@doctor), :method => :get, class:"btn btn-block btn-outline-success" %>
+                          </div>
+                          <!--/col-->
+                      </div>
+                      <!--/row-->
+                  </div>
+                  <!--/card-block-->
+              </div>
+          </div>
+      </div>
+    </div>
+  </center>

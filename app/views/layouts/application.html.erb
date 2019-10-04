@@ -1,0 +1,52 @@
+<% if @current_patient.nil? %>
+  <% @url = login_path()  %>
+  <% else %>
+  <% @url = patient_path(@current_patient) %>
+<% end %>
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%# <%= javascript_pack_tag "application" %>
+    <%# <%= javascript_include_tag "application" %>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <title>DoctorSpotter</title>
+  </head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="<%= @url %>"><img class="form-inline mt-2 mt-md-0" src="https://image.flaticon.com/icons/svg/387/387561.svg" width="50" height="50" alt="Doctor's home page"></a>
+      <a class="navbar-brand" href="<%= @url %>"><p class="text-center">HOME</p></a>
+      <% if !@current_patient.nil? %>
+      <a class="parent position-relative" href="<%= logout_path %>"><img class="position-fixed" src="https://image.flaticon.com/icons/svg/126/126467.svg" width="30" height="30" alt="Logout" align="right" style="margin-left: 78%"></a>
+      <% end %>
+    </nav>
+
+
+        <%= yield %>
+
+      <!-- Optional JavaScript -->
+
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <br><br><br>
+        <footer class="container" style="height: 50px; margin-top: 50px;"><p>© DoctorSpotter 2019-2020</p></footer>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    </body>
+</html>

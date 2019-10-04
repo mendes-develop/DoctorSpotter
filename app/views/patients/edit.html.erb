@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="text-center">
+
+    <div class="container">
+      <br>
+      <h1 style="font-family: 'Roboto Slab', serif; color: #007bff" >Edit<span style="color: #ff5b62;"> Account</span></h1>
+    </div>
+
+
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error|  %>
+        <p style='color:red'><%= error %></p>
+      <% end %>
+    <% end %>
+
+    <%= form_for @current_patient do |f| %>
+
+      <%# <%= f.label :first_name %>
+      <%= f.text_field :first_name, placeholder: 'First Name', class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+      <br>
+      <%# <%= f.label :last_name, class: "block text-gray-700 text-sm font-bold mb-0" %>
+      <%= f.text_field :last_name, placeholder: 'Last Name', class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+      <br>
+      <%# <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-0" %>
+      <%= f.text_field :email, placeholder: 'Email', class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+      <br>
+      <%# <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-0" %>
+      <%= f.password_field :password, placeholder: 'New Password', class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+      <br>
+      <%# <%= f.label :password_confirmation, class: "block text-gray-700 text-sm font-bold mb-0" %>
+      <%= f.password_field :password_confirmation, placeholder: 'Confirmation', class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-5" %>
+      <br>
+      <%= f.submit "Update Account", class:"btn btn-primary" %>
+
+      <%# <%= link_to "Main Page", patient_path(@current_patient) %>
+
+    <% end %>
+  </div>
+</div>

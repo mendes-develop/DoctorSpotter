@@ -1,0 +1,29 @@
+<br>
+<div class="container">
+
+  <% if @appointments.empty? %>
+    <div class="container">
+      <h5 style="font-family: 'Roboto Slab', serif; color: #007bff" >You have <span style="color: #ff5b62;">no appointments</span> yet. <br>Go back to your <span style="color: #ff5b62;">HOME PAGE</span> and start scheduling one.</h5>
+    </div>
+
+    <% else %>
+  <h4 style="font-family: 'Roboto Slab', serif; color: #007bff" >Appointments' <span style="color: #ff5b62;">Page</span></h4>
+
+    <% @appointments.each do |appointment| %>
+      <div class="card" style="width: 50rem;">
+        <div class="col-12">
+          <br>
+          <p><strong>Date of your appointment: </strong><%= appointment.date.strftime("%a, %d %b %Y") %></p>
+          <p><strong>Doctor: </strong><%= appointment.doctor.name %></p>
+          <p><strong>Your Co-pay: </strong>$<%= (appointment.doctor.fee * appointment.doctor.insurance.coverage).round(0) %>.</p>
+          <p><strong>Notes about your visit: </strong> <%= appointment.condition %></p>
+          <%= link_to "Edit", edit_appointment_path(appointment), :method => :get, class:"btn btn-info" %>
+          <%= link_to "Delete", appointment_path(appointment), :method => :destroy, class:"btn btn-danger" %>
+          <br>
+          <br>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
+</div>

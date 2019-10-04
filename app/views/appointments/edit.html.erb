@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="text-left">
+    <br>
+    <h4 style="font-family: 'Roboto Slab', serif; color: #007bff" >Schedule your appointment with<br><span style="color: #ff5b62;">Doctor's name</span></h4>
+
+    <div class="needs-validation">
+      <%= form_for @appointment do |f| %>
+      <div class="container">
+        <div class="form-gtoup">
+          <%= f.label :date %><br>
+          <%= f.date_field :date, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :reason %><br>
+          <%= f.text_area :condition, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :doctor_id %>
+          <%= f.hidden_field :patient_id %>
+          <%= f.submit "Submit Changes", class:"btn btn-primary" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

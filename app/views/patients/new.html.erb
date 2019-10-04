@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="text-center">
+    <br>
+    <h1 style="font-family: 'Roboto Slab', serif; color: #007bff" >Sign<span style="color: #ff5b62;"> Up</span></h1>
+
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |error|  %>
+          <p style='color:red'><%= error %></p>
+          <% end %>
+      <% end %>
+
+    <div class="container">
+      <%= form_for @patient do |f| %>
+        <div class="form-group">
+          <%= f.text_field :first_name, placeholder: "First name", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_field :last_name, placeholder: "Last name", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_field :email, placeholder: "Email", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password, placeholder: "Password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, placeholder: "Confirmation", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" %>
+        </div>
+
+        <div class="form-group">
+          <%= submit_tag "Submit", class:"btn btn-primary" %>
+        </div>
+
+      <% end %>
+      <hr>
+      <div class="form-group">
+        <%= link_to "Already an User?", login_path %>
+      </div>
+
+    </div>
+  </div>
+</div>

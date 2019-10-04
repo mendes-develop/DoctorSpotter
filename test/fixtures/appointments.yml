@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: one
+  doctor: one
+  date: 2019-09-30
+  condition: MyString
+
+two:
+  patient: two
+  doctor: two
+  date: 2019-09-30
+  condition: MyString

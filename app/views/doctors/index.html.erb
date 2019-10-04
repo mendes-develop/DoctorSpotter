@@ -1,0 +1,39 @@
+
+
+<div class="container">
+  <br>
+  <h4 style="font-family: 'Roboto Slab', serif; color: #007bff" >Select a <span style="color: #ff5b62;"> Doctor</span></h4>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>Doctor</span></th>
+                                <th class="text-center"><span>Specialty</span></th>
+                                <th class="text-center"><span>Insurance</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <% @doctors.each do |doctor| %>
+                                <tr>
+                                  <td>
+                                      <img src="<%= doctor.image_url %>" alt="Dr's <%= doctor.name %> picture"><br>
+                                      <%= link_to doctor.name, doctor_path(doctor) %>
+                                  </td>
+                                  <td class="text-center"><%= doctor.specialty.name %></td>
+                                  <td class="text-center">
+                                      <%= doctor.insurance.name %>
+                                  </td>
+                                </tr>
+                              <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
