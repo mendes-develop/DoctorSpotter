@@ -20,7 +20,7 @@
                               <% @doctors.each do |doctor| %>
                                 <tr>
                                   <td>
-                                      <img src="<%= doctor.image_url %>" alt="Dr's <%= doctor.name %> picture"><br>
+                                      <img src="https://www.reabilitybauru.com.br/wp-content/uploads/2017/01/perfil-300x300.png" heigth="100px" width="100px" alt="Dr's <%= doctor.name %> picture"><br>
                                       <%= link_to doctor.name, doctor_path(doctor) %>
                                   </td>
                                   <td class="text-center"><%= doctor.specialty.name %></td>
