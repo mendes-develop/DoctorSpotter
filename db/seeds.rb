@@ -1,38 +1,38 @@
-Doctor.destroy_all
-Insurance.destroy_all
-Specialty.destroy_all
+# Doctor.destroy_all
+# Insurance.destroy_all
+# Specialty.destroy_all
 
-Doctor.reset_pk_sequence
-Specialty.reset_pk_sequence
-Insurance.reset_pk_sequence
+# Doctor.reset_pk_sequence
+# Specialty.reset_pk_sequence
+# Insurance.reset_pk_sequence
 
-### Insurances fetch from API
-def insurances
-  response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/insurances?limit=10&user_key=3e4679b46d0072502aa1d79b922da235'
-  json = JSON.parse response
-  if !json.nil?
-   json["data"].each do |item|
-     Insurance.create(name: item["name"], coverage: rand(0.6..0.95).round(2))
-   end
-  else
-    puts "error fetching insurance companies"
-  end
-end
+# ### Insurances fetch from API
+# def insurances
+#   response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/insurances?limit=10&user_key=3e4679b46d0072502aa1d79b922da235'
+#   json = JSON.parse response
+#   if !json.nil?
+#    json["data"].each do |item|
+#      Insurance.create(name: item["name"], coverage: rand(0.6..0.95).round(2))
+#    end
+#   else
+#     puts "error fetching insurance companies"
+#   end
+# end
 
 
-#### Speciality fetch from API
-def specialties
-  response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/specialties?limit=10&user_key=3e4679b46d0072502aa1d79b922da235'
-  json = JSON.parse response
+# #### Speciality fetch from API
+# def specialties
+#   response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/specialties?limit=10&user_key=3e4679b46d0072502aa1d79b922da235'
+#   json = JSON.parse response
 
-  if !json.nil?
-   json["data"].each do |item|
-     Specialty.create(name: item["name"])
-   end
-  else
-   puts "error fetching specialties"
-  end
-end
+#   if !json.nil?
+#    json["data"].each do |item|
+#      Specialty.create(name: item["name"])
+#    end
+#   else
+#    puts "error fetching specialties"
+#   end
+# end
 
 ### Doctor fetch from API
 def doctors
@@ -48,9 +48,14 @@ def doctors
   end
 end
 
-insurances()
-specialties()
+# insurances()
+# specialties()
+
 doctors()
+
+for _ in 1..5 do
+  doctors()
+end 
 
 puts "Seeded"
 
