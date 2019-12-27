@@ -8,7 +8,7 @@ Insurance.reset_pk_sequence
 
 ### Insurances fetch from API
 def insurances
-  response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/insurances?limit=10&user_key='
+  response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/insurances?limit=10&user_key=3e4679b46d0072502aa1d79b922da235'
   json = JSON.parse response
   if !json.nil?
    json["data"].each do |item|
@@ -22,7 +22,7 @@ end
 
 #### Speciality fetch from API
 def specialties
-  response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/specialties?limit=10&user_key='
+  response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/specialties?limit=10&user_key=3e4679b46d0072502aa1d79b922da235'
   json = JSON.parse response
 
   if !json.nil?
@@ -36,7 +36,7 @@ end
 
 ### Doctor fetch from API
 def doctors
-  response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/doctors?location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=4&limit=100&user_key='
+  response = RestClient.get 'https://api.betterdoctor.com/2016-03-01/doctors?location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=4&limit=100&user_key=3e4679b46d0072502aa1d79b922da235'
   json = JSON.parse response
 
   if !json.nil?
